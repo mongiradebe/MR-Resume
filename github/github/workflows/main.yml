@@ -1,0 +1,23 @@
+name: Deploy to S3
+
+on:
+  push:
+    branches:
+      - main  # Change to your main branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: AWS S3 Sync
+      uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --delete
+      env:
+        AWS_S3_BUCKET: myresume24bucket
+        AWS_REGION: US East (N. Virginia) us-east-1
+        AWS_ACCESS_KEY_ID: ${{ }}
+        AWS_SECRET_ACCESS_KEY: ${{ Et6yrOARXfc+swnB791cLHVCsYpL7zcnmi0VIufB }}
